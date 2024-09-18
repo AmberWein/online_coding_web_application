@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Socket.IO Test</title>
+</head>
+<body>
+    <h1>Socket.IO Test</h1>
+
+    <!-- Include Socket.IO Client Library -->
+    <script src="https://cdn.socket.io/4.6.0/socket.io.min.js"></script>
+
+    <script>
+        // Connect to the Socket.IO server
+        const socket = io('http://localhost:3001');
+
+        // Listen for the 'message' event from the server
+        socket.on('message', (msg) => {
+            console.log('Server says:', msg);
+        });
+
+        // Send a message to the server
+        socket.emit('chatMessage', 'Hello from the client!');
+
+        // Listen for the 'chatMessage' event from the server
+        socket.on('chatMessage', (msg) => {
+            console.log('New chat message:', msg);
+        });
+    </script>
+</body>
+</html>
