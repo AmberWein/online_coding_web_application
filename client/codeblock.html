@@ -8,6 +8,7 @@
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+  <!-- container to display a code block -->
   <div id="codeBlock">
     <h1 id="codeBlockTitle"></h1>
     <pre><code id="codeEditor"></code></pre>
@@ -15,9 +16,15 @@
 
   <script src="/socket.io/socket.io.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/highlight.min.js"></script>
+
+  <!-- button for checking the user's solution -->
   <button id="checkButton">Check Solution</button>
   <script src="codeblock.js"></script>
+
+  <!-- container to display smiley on success -->
   <div id="smileyContainer"></div>
+
+  <!-- container to display error massage if the user's solution doesn't match the solution -->
   <div id="errorMessageContainer"></div>
 </body>
 </html>

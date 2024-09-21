@@ -3,10 +3,8 @@ require('dotenv').config()
 const express = require('express');
 const http = require('http');
 const socketIO = require('socket.io');
-const cors = require('cors');
 const mongoose = require('mongoose');
 const routes = require('./routes');
-const CodeBlock = require('./models/codeblocks');
 const path = require('path');
 
 const app = express();
@@ -25,9 +23,7 @@ const db = mongoose.connection
 db.on('error', (error) => console.error(error));
 db.once('open', (error) => console.log('Connected to Database'));
 
-// app.use(express.json())
 app.use(express.static(path.join(__dirname, '../client')));
-// app.use(cors()); // enable CORS middleware
 app.use('/api', routes);
 
 // web socket handling

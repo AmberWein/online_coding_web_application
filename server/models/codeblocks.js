@@ -6,7 +6,6 @@ const codeBlockSchema = new Schema({
     title: {
         type: String,
         required: true,
-        // unique: true
     },
     template: { // the initial code template for the code block
         type: String,
