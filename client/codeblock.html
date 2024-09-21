@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Code Block</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/styles/default.min.css">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div id="codeBlock">
+    <h1 id="codeBlockTitle"></h1>
+    <pre><code id="codeEditor"></code></pre>
+  </div>
+
+  <script src="/socket.io/socket.io.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/highlight.min.js"></script>
+  <button id="checkButton">Check Solution</button>
+  <script src="codeblock.js"></script>
+  <div id="smileyContainer"></div>
+  <div id="errorMessageContainer"></div>
+</body>
+</html>

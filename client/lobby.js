@@ -16,3 +16,33 @@ if (localStorage.getItem('socketId')) {
         localStorage.setItem('socketId', socket.id);
     });
 }
+
+// fetch code blocks from the server
+fetch('/api/codeblocks')
+    .then(response => {
+        if(!response) {
+            throw new Error('Network response was not good.');
+        }
+        return response.json();
+    })
+    .then(codeblocks => {
+        const codeBlockList = document.getElementById('codeBlockList');
+        codeBlockList.innerHTML = "";
+
+        // for each fetched code block create a list item
+        codeblocks.forEach(codeBlock => {
+            const listItem = document.createElement('li');
+            const anchor = document.createElement('a');
+
+            // set anchor element:
+            // href to link to the corresponding code block page and the visible text to it's title
+            anchor.href = `/codeblock.html?title=${encodeURIComponent(codeBlock.title)}`;
+            anchor.textContent = codeBlock.title;
+
+            listItem.appendChild(anchor);
+            codeBlockList.appendChild(listItem);
+        });
+    })
+    .catch(error => {
+        console.error('Error fetching code blocks: ', error);
+    });
