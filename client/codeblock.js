@@ -62,15 +62,6 @@ fetch(`/api/codeblocks/${codeBlockTitle}`)
                 });
             });
           }
-
-        //     if (clients.length === 1) {
-        //       console.log('Setting code editor to read-only mode');
-        //       isMentor = true;
-        //       codeEditorElement.setAttribute('contenteditable', false); // Set editor to read-only
-        //   } else {
-        //       console.log('Setting code editor to editable mode');
-        //       codeEditorElement.setAttribute('contenteditable', true);
-        // }
     });
 
     // listen for code changes from the server (if another user modifies the code)
