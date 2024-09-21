@@ -1,7 +1,7 @@
 require('dotenv').config()
 
 const mongoose = require('mongoose');
-const CodeBlock = require('./models/codeblocks');  // Import the CodeBlock model
+const CodeBlock = require('./models/codeblocks');
 
 // Connect to MongoDB
 mongoose.connect(process.env.DATABASE_URL)
