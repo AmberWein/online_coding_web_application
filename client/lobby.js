@@ -1,14 +1,15 @@
 let socket;
+const socketUrl = 'https://onlinecodingwebapplication-production.up.railway.app';
 
 // check if socketId exist in localStorage
 if (localStorage.getItem('socketId')) {
     // if it is, establish a socket connection using the stored socketId
     // socket = io(`/?socketId=${localStorage.getItem('socketId')}`);
-    socket = io(`https://main--online-coding-web-applic.netlify.app/?socketId=${localStorage.getItem('socketId')}`);
+    socket = io(`${socketUrl}/?socketId=${localStorage.getItem('socketId')}`);
 } else {
     // if not, establish a new connection
     // socket = io();
-    socket = io('https://main--online-coding-web-applic.netlify.app');
+    socket = io(socket);
     // Once connected, store the new socketId in localStorage
     socket.on('connect', () => {
         localStorage.setItem('socketId', socket.id);

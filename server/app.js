@@ -8,7 +8,7 @@ const routes = require('./routes');
 const path = require('path');
 
 const app = express();
-const server = http.createServer(app); // An HTTP server to work with both Express and Socket.IO
+const server = http.createServer(app); // an HTTP server to work with both Express and Socket.IO
 
 const io = socketIO(server, {
     cors: {
@@ -18,7 +18,14 @@ const io = socketIO(server, {
     }
 });
 
-// Mongoose connection
+// middleware to handle CORS
+app.use(cors({
+    origin: "https://main--online-coding-web-applic.netlify.app",
+    methods: ["GET", "POST"],
+    credentials: true
+}));
+
+// mongoose connection
 mongoose.connect('mongodb://mongo:pkrRnYSWSMdXjuQwDsQpakYuHFhYJVbp@mongodb.railway.internal:27017')
 const db = mongoose.connection
 db.on('error', (error) => console.error(error));

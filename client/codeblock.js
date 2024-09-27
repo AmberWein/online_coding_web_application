@@ -1,13 +1,14 @@
 // handles the functionality related to displaying a specific code block
 let socket;
 let isMentor = false;
+const socketUrl = 'https://onlinecodingwebapplication-production.up.railway.app'
 
 if (localStorage.getItem('socketId')) {
   // reconnection
-  socket = io(`/?socketId=${localStorage.getItem('socketId')}`);
+  socket = io(`${socketUrl}/?socketId=${localStorage.getItem('socketId')}`);
 } else {
   // new socket connection
-  socket = io('https://onlinecodingwebapplication-production.up.railway.app');
+  socket = io(socketUrl);
   socket.on('connect', () => {
     localStorage.setItem('socketId', socket.id);
   });
