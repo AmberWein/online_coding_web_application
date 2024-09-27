@@ -6,11 +6,11 @@ let socket;
 if (localStorage.getItem('socketId')) {
     // if it is, establish a socket connection using the stored socketId
     // socket = io(`/?socketId=${localStorage.getItem('socketId')}`);
-    socket = io(`https://onlinecodingwebapplication-production.up.railway.app/?socketId=${localStorage.getItem('socketId')}`);
+    socket = io(`https://main--online-coding-web-applic.netlify.app/?socketId=${localStorage.getItem('socketId')}`);
 } else {
     // if not, establish a new connection
     // socket = io();
-    socket = io('https://onlinecodingwebapplication-production.up.railway.app/');
+    socket = io('https://main--online-coding-web-applic.netlify.app/');
     // Once connected, store the new socketId in localStorage
     socket.on('connect', () => {
         localStorage.setItem('socketId', socket.id);
