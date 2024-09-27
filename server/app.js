@@ -6,6 +6,7 @@ const socketIO = require('socket.io');
 const mongoose = require('mongoose');
 const routes = require('./routes');
 const path = require('path');
+const cors = require('cors');
 
 const app = express();
 const server = http.createServer(app); // an HTTP server to work with both Express and Socket.IO
@@ -28,8 +29,10 @@ app.use(cors({
 // mongoose connection
 mongoose.connect('mongodb://mongo:pkrRnYSWSMdXjuQwDsQpakYuHFhYJVbp@mongodb.railway.internal:27017')
 const db = mongoose.connection
-db.on('error', (error) => console.error(error));
-db.once('open', (error) => console.log('Connected to Database'));
+// db.on('error', (error) => console.error(error));
+// db.once('open', (error) => console.log('Connected to Database'));
+.then(() => console.log('Connected to Database'))
+.catch((error) => console.error('Database connection error:', error));
 
 app.use(express.static(path.join(__dirname, '../client')));
 app.use('/api', routes);
