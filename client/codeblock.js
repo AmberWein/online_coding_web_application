@@ -7,7 +7,7 @@ if (localStorage.getItem('socketId')) {
   socket = io(`/?socketId=${localStorage.getItem('socketId')}`);
 } else {
   // new socket connection
-  socket = io();
+  socket = io('https://onlinecodingwebapplication-production.up.railway.app');
   socket.on('connect', () => {
     localStorage.setItem('socketId', socket.id);
   });
@@ -21,7 +21,7 @@ const codeBlockTitleElement = document.getElementById('codeBlockTitle');
 const codeEditorElement = document.getElementById('codeEditor');
 
 // fetch the code block details from the server using the title from the URL
-fetch(`/api/codeblocks/${codeBlockTitle}`)
+fetch(`https://onlinecodingwebapplication-production.up.railway.app/api/codeblocks/${codeBlockTitle}`)
   .then(response => {
     console.log('Response:', response);
     return response.json();

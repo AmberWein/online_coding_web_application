@@ -1,5 +1,3 @@
-// const codeblocks = require("../server/models/codeblocks");
-
 let socket;
 
 // check if socketId exist in localStorage
@@ -10,7 +8,7 @@ if (localStorage.getItem('socketId')) {
 } else {
     // if not, establish a new connection
     // socket = io();
-    socket = io('https://main--online-coding-web-applic.netlify.app/');
+    socket = io('https://main--online-coding-web-applic.netlify.app');
     // Once connected, store the new socketId in localStorage
     socket.on('connect', () => {
         localStorage.setItem('socketId', socket.id);
@@ -18,7 +16,7 @@ if (localStorage.getItem('socketId')) {
 }
 
 // fetch code blocks from the server
-fetch('/api/codeblocks')
+fetch('https://onlinecodingwebapplication-production.up.railway.app/api/codeblocks')
     .then(response => {
         if(!response) {
             throw new Error('Network response was not good.');
