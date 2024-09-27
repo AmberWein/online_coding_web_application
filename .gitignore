@@ -4,4 +4,5 @@ public
 src
 
 server/node_modules
-server/.env
+# Local Netlify folder
+.netlify
