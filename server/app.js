@@ -18,7 +18,7 @@ const io = socketIO(server, {
 });
 
 // Mongoose connection
-mongoose.connect(process.env.DATABASE_URL)
+mongoose.connect('mongodb://mongo:pkrRnYSWSMdXjuQwDsQpakYuHFhYJVbp@mongodb.railway.internal:27017')
 const db = mongoose.connection
 db.on('error', (error) => console.error(error));
 db.once('open', (error) => console.log('Connected to Database'));
