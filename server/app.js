@@ -12,7 +12,7 @@ const server = http.createServer(app); // An HTTP server to work with both Expre
 
 const io = socketIO(server, {
     cors: {
-        origin: "*",
+        origin: "onlinecodingwebapplication-production.up.railway.app",
         methods: ["GET", "POST"],
         credentials: true
     }
