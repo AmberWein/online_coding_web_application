@@ -12,7 +12,7 @@ if (localStorage.getItem('socketId')) {
 } else {
     // if not, establish a new connection
     // socket = io();
-    socket = io(socket);
+    socket = io(socketUrl);
     // Once connected, store the new socketId in localStorage
     socket.on('connect', () => {
         localStorage.setItem('socketId', socket.id);

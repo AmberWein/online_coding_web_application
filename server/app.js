@@ -15,6 +15,7 @@ const io = socketIO(server, {
     cors: {
         origin: "https://main--online-coding-web-applic.netlify.app",
         methods: ["GET", "POST"],
+        allowedHeaders: ["websocket"],
         credentials: true
     }
 });
