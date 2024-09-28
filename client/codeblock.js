@@ -5,7 +5,10 @@ const socketUrl = 'https://onlinecodingwebapplication-production.up.railway.app'
 
 if (localStorage.getItem('socketId')) {
   // reconnection
-  socket = io(`${socketUrl}/?socketId=${localStorage.getItem('socketId')}`);
+  // socket = io(`${socketUrl}/?socketId=${localStorage.getItem('socketId')}`);
+  socket = io(socketUrl, {
+    query: { socketId: localStorage.getItem('socketId') }
+});
 } else {
   // new socket connection
   socket = io(socketUrl);

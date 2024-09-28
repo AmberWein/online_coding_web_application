@@ -5,7 +5,10 @@ const socketUrl = 'https://onlinecodingwebapplication-production.up.railway.app'
 if (localStorage.getItem('socketId')) {
     // if it is, establish a socket connection using the stored socketId
     // socket = io(`/?socketId=${localStorage.getItem('socketId')}`);
-    socket = io(`${socketUrl}/?socketId=${localStorage.getItem('socketId')}`);
+    // socket = io(`${socketUrl}/?socketId=${localStorage.getItem('socketId')}`);
+    socket = io(socketUrl, {
+        query: { socketId: localStorage.getItem('socketId') }
+    });
 } else {
     // if not, establish a new connection
     // socket = io();
